@@ -1,0 +1,15 @@
+.data
+base: .word 1 2 3 4 5 6
+
+.text
+main:
+addi x1,x0,3          # comments
+add x2,x1,x1
+addi x3,x0,7
+Label:
+beq x1,x3,exit
+addi x1,x1,1
+sub x2,x2,x1
+j Label
+exit:
+add x5,x1,x2

@@ -1,0 +1,11 @@
+     # unknown
+addi x1,x1,1    # x1=1
+addi x2,x0,4    # x2=4
+# bne x1,x2,main
+# label:
+li x5,5         # x5=5
+lui x20, 0x10000FA0     # x20=2048    # max hexdec is 00000FFF;  0x10000FA0 equivalent to 2048 memory
+slli x1,x1,2    # x1=4
+lw x4,8(x3)     # x4=5 wrong syntax ans. x4=memory[5]
+lw x6,12(x20)   # x6=memory[2051]=4
+sw x1,8(x20)    # memory[2050]=4

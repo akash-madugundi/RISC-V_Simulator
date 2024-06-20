@@ -1,0 +1,77 @@
+# CORE 0
+
+.data
+.word 19 2 4 11 1 5 20 16 12 13 8 10 7 3 6 14 9 18 17 15
+base: .word 0x10001000
+str1: .string "The Array is \n"
+str2: .string "Sorted Array is \n"
+str3: .string " "
+str4: .string "\n"
+
+.text
+lw x8, base     #0x10000000
+addi x5,x0,0 # initialize i=0
+addi x6,x0,20 # initialize 20
+
+la x10 str1
+li x17 4
+ecall
+Loop:
+beq x5,x6,Sort
+lw x28,0(x8)
+add x10,x28,x0
+li x17 1
+ecall
+la x10 str3
+li x17 4
+ecall
+addi x5,x5,1
+addi x8,x8,1       #addi x8,x8,4
+j Loop          # prints Array
+
+Sort:
+la x10 str4
+li x17 4
+ecall
+addi x5,x0,0 #initialize i
+BSort1:
+beq x5,x6,End2
+lw x8, base
+addi x7,x0,0 #initialize j
+BSort2:
+beq x7,x6,exitBSort2
+lw x10,0(x8)
+lw x11,4(x8)
+ble x10,x11,update
+sw x10,4(x8)
+sw x11,0(x8)
+update:
+addi x7,x7,1
+addi x8,x8,1        #addi x8,x8,4
+j BSort2
+exitBSort2:
+addi x5,x5,1
+j BSort1
+
+End2:
+lw x8,base
+addi x5,x0,0 # initialize i=0
+addi x6,x0,20 # initialize 20
+la x10 str2
+li x17 4
+ecall
+Loop2:
+beq x5,x6,Exit
+lw x28,4(x8)        #lw x28,0(x8)
+add x10,x28,x0
+li x17 1
+ecall
+la x10 str3
+li x17 4
+ecall
+addi x5,x5,1
+addi x8,x8,1        #addi x8,x8,4
+j Loop2          # prints Sorted Array
+
+Exit:
+li a7 10

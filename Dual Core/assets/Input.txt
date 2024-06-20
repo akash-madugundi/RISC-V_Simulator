@@ -1,0 +1,32 @@
+.data
+.word 1 2 3 4 5 6
+base: .word 0x10000000
+str1: .string "The Array is \n"
+str2: .string "Sorted Array is \n"
+str3: .string " "
+
+.text
+main:
+lw x6,base
+addi x1,x0,3          # comments
+add x2,x1,x1
+addi x3,x0,7
+Label:
+beq x1,x3,exit
+addi x1,x1,1
+
+la x10 str1
+li x17 4
+ecall
+la x10 str2
+li x17 4
+ecall
+
+add x10,x1,x0
+li x17 1
+ecall
+
+sub x2,x2,x1
+j Label
+exit:
+add x5,x1,x2
