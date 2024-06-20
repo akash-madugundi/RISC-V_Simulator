@@ -1,0 +1,27 @@
+RUN:
+> To compile the code 
+  Single Core: "g++ Core.cpp -o Core" and ".\Core" to run.
+  Dual Core: "g++ Processor.cpp Core.cpp -o Processor" and ".\Processor" to run.
+> Input 1 or 2 or 3 or 4 or 5 accordingly the instructions specified.
+> For Dual core, recommended(not compulsory) Core-0 for BubbleSort and Core-1 for SelectionSort as memory address in input text and outputare aligned.
+
+FEATURES:
+> Instructions supported are add,sub,addi,slli,srli,li,lw,la,sw,bne,beq,ble,bgt,j,ecall
+> add, sub are R Type. addi, slli, srli, li are I Type. lw, la, sw are S Type. bne, beq, ble, bgt, j are SB Type. ecall is ECALL Type. LABELS Type for labels. UNKNOWN for not detected.
+> Each instruction is stored in memory in decimal format (binary to decimal) in parser and decoded them as binary form in execute.
+> div[0] -> opcode; div[1] -> rd; div[2] -> rs1; div[3] -> rs2; div[4] -> imm (address for branch, j)
+> ecall is printed in console and Cycles, CPI, Memory, Register values are printed in terminal.
+> In ecall, to get newline for a string, include '\n' in that string.
+> Output of each cycle is available in output.txt(single core), output1.txt or output2.txt(dual core) file
+> Also prints No. of cycles, Intstructions retired and CPI for each core.
+> For branch or jump, we store branch target address in imm value and access it if branch is taken.
+> LW stores values from memory into register and SW stores values from register to memory.
+> Instructions stored in memory address 0 for Core-0 and 1024 for Core-1 by default.
+> Single Core: Memory address 0 to x -> instructions; 2048(268435456) to y -> .word, y to z -> sw values;
+  Dual Core: Memory address 0(268437408) to x1 -> insts of Core-0; 1024 to x2 -> insts of Core-1; 2048(268435456)(0x10000000) to y1 -> .word, y1 to z1 -> sw values of Core-0;     3072(268439552)(0x10001000) to y2 -> .word, y2 to z2 -> sw values of Core-1
+> 0x10000000(268435456) equivalent to 2048, 0x10000004(268435460) equivalent to 2049, 0x10001000(268439552) equivalent to 3072
+
+LIMITATIONS:
+> rs2 is limited till x14, since each instruction takes more than 32bits, so rs2 is compressed.
+> Took memory address and pc as 1,2,3... instead of multiples of 4.
+> Memory is 4096 bytes.
