@@ -3,7 +3,7 @@ RUN:
   Single Core: "g++ Core.cpp -o Core" and ".\Core" to run.
   Dual Core: "g++ Processor.cpp Core.cpp -o Processor" and ".\Processor" to run.
 > Input 1 or 2 or 3 or 4 or 5 accordingly the instructions specified.
-> For Dual core, recommended(not compulsory) Core-0 for BubbleSort and Core-1 for SelectionSort as memory address in input text and outputare aligned.
+> For Dual core, recommended(not compulsory) Core-0 for BubbleSort and Core-1 for SelectionSort as memory address in input text and output are aligned.
 
 FEATURES:
 > Instructions supported are add,sub,addi,slli,srli,li,lw,la,sw,bne,beq,ble,bgt,j,ecall
