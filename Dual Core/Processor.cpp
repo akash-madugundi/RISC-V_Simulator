@@ -48,6 +48,7 @@ class Processor{
                 }
                 cout<<endl;
                 cout<<"---------------------------------------------------------------------------------------------------------------------------------------------"<<endl;
+                cout<<"                                    <<<<<<<<<< Each Cycle Contents in `output"<<(c+1)<<".txt` in assets >>>>>>>>>>"<<endl;
                 cout<<"---------------------------------------------------------------------------------------------------------------------------------------------"<<endl<<endl;
             }
 
@@ -63,10 +64,10 @@ int main(){
     Processor p;
     int fileNo1, fileNo2;
     cout<<endl;
-    cout << "Enter the filename for \033[1mCore-0\033[0m (Available- BubbleSort.txt(1), SelectionSort.txt(2), Input.txt(3), Input1.txt(4), Input2.txt(5)): "<<endl;
+    cout << "Enter the filenumber for \033[1mCore-0\033[0m (Available- BubbleSort.txt(1), SelectionSort.txt(2), Input.txt(3), Input1.txt(4), Input2.txt(5)): "<<endl;
     cout << "\033[3m(recommended: Core-0 for BubbleSort(1) and Core-1 for SelectionSort(2))\033[0m" <<endl;
     cin>>fileNo1;
-    cout << "Enter the filename for \033[1mCore-1\033[0m (Available- BubbleSort.txt(1), SelectionSort.txt(2), Input.txt(3), Input1.txt(4), Input2.txt(5)): "<<endl;
+    cout << "Enter the filenumber for \033[1mCore-1\033[0m (Available- BubbleSort.txt(1), SelectionSort.txt(2), Input.txt(3), Input1.txt(4), Input2.txt(5)): "<<endl;
     cin>>fileNo2;
     cout<<endl;
     string file1, file2, filepath, line;
