@@ -373,7 +373,7 @@ int main(){
     pair<int, int> CycInst;
     vector<string> program;
     int fileNo;
-    cout << "Enter the filename (Available- BubbleSort.txt(1), SelectionSort.txt(2), Input.txt(3), Input1.txt(4), Input2.txt(5)): "<<endl;
+    cout << "Enter the filenumber (Available- BubbleSort.txt(1), SelectionSort.txt(2), Input.txt(3), Input1.txt(4), Input2.txt(5)): "<<endl;
     cin>>fileNo;
     string file;
     switch(fileNo){
@@ -422,5 +422,6 @@ int main(){
         cout << "Reg[" << setw(2) << j << "]:   " << setw(4) << c.registers[reg] << endl;
     }
     cout<<endl<<endl;
+    cout<<"<<<<<<<<<< Each Cycle Contents in `output.txt` in assets >>>>>>>>>>"<<endl<<endl;
     return 0;
 }
