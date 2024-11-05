@@ -25,3 +25,4 @@ LIMITATIONS:
 > rs2 is limited till x14, since each instruction takes more than 32bits, so rs2 is compressed.
 > Took memory address and pc as 1,2,3... instead of multiples of 4.
 > Memory is 4096 bytes.
+> Incorporating pipelining.
